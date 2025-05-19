@@ -1,0 +1,392 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body, html {
+  font-family: 'Poppins', sans-serif;
+  background-color: #FFF9F0;
+  color: #3B2F2F;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  overflow-y: scroll;
+}
+a {
+  color: #C94B30;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover, a:focus {
+  color: #D97B5A;
+  outline: none;
+}
+
+/* Container with vertical scroll but clipped to height */
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  max-height: 100vh;
+  max-width: 1000px;
+  margin: 0 auto;
+  border-left: 1px solid #E2B89B;
+  border-right: 1px solid #E2B89B;
+  background: linear-gradient(180deg, #FDF4E3 0%, #C94B30 100%);
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* For small screens, fit width 100vw, max 350px */
+@media (max-width: 400px) {
+  #app {
+    width: 100vw;
+    max-width: 350px;
+    max-height: 600px;
+    overflow: hidden;
+  }
+}
+
+header {
+  background: #C94B30;
+  color: #fff;
+  padding: 1rem 1rem 0.8rem;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  user-select: none;
+}
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.2rem;
+  text-shadow: 1px 1px 3px #7A3B27;
+}
+header p {
+  font-weight: 500;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  font-style: italic;
+  margin-bottom: 0.3rem;
+}
+
+/* Nav styling and keyboard focus */
+nav {
+  background-color: #F7D6BF;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.7rem 0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+  flex-wrap: wrap;
+}
+nav button {
+  background: none;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  color: #3B2F2F;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin: 0 4px 6px 4px;
+  min-width: 80px;
+  text-align: center;
+}
+nav button:hover,
+nav button.active {
+  background-color: #C94B30;
+  color: #FFF9F0;
+  box-shadow: 0 0 8px #EB6E45;
+}
+nav button:focus-visible {
+  outline: 3px solid #EB6E45;
+  outline-offset: 3px;
+}
+
+/* Main content area */
+main {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem 2rem 2rem 2rem;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* For small screens */
+@media (max-width: 400px) {
+  main {
+    padding: 0.8rem 1rem 1rem 1rem;
+  }
+}
+
+section {
+  margin-bottom: 1.8rem;
+}
+h2.section-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.7rem;
+  color: #7A3B27;
+  border-bottom: 3px solid #C94B30;
+  padding-bottom: 0.2rem;
+  letter-spacing: 0.04em;
+}
+
+/* About Section */
+#about p {
+  font-size: 1.1rem;
+  color: #462C21;
+  text-align: justify;
+  max-width: 800px;
+}
+
+/* Dish Catalog Styles */
+#catalog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.filters {
+  margin-bottom: 0.8rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  max-width: 700px;
+  width: 100%;
+}
+.filters select, .filters input {
+  font-size: 1rem;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 2px solid #C94B30;
+  outline-offset: 3px;
+  color: #3B2F2F;
+  background: #FFD4BC;
+  flex: 1 1 220px;
+  min-width: 150px;
+  max-width: 300px;
+}
+.filters select:focus-visible,
+.filters input:focus-visible {
+  outline: 3px solid #EB6E45;
+}
+
+/* Dish list */
+.dish-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 900px;
+}
+.dish-card {
+  background: #FBEDE7;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+  padding: 14px;
+  display: flex;
+  gap: 14px;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+  transition: box-shadow 0.3s ease;
+  color: inherit;
+  font-family: inherit;
+  align-items: center;
+}
+.dish-card:hover,
+.dish-card:focus-visible {
+  box-shadow: 0 6px 18px rgba(201,75,48,0.7);
+  outline: none;
+}
+.dish-card:focus-visible {
+  outline: 3px solid #EB6E45;
+  outline-offset: 2px;
+}
+.dish-image {
+  flex-shrink: 0;
+  width: 100px;
+  height: 90px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  user-select: none;
+}
+.dish-info {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.dish-name {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #C94B30;
+  margin-bottom: 6px;
+}
+.dish-region {
+  font-size: 0.95rem;
+  font-style: italic;
+  color: #7A3B27;
+}
+.dish-description {
+  font-size: 0.9rem;
+  color: #462C21;
+  margin-top: 0.3rem;
+}
+
+/* UMKM Section */
+#umkm .vendor-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 22px;
+  width: 100%;
+  max-width: 900px;
+}
+.vendor-card {
+  background: #FFF1EB;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  transition: box-shadow 0.3s ease;
+}
+.vendor-card:hover,
+.vendor-card:focus-visible {
+  box-shadow: 0 8px 22px rgba(201,75,48,0.6);
+  outline: none;
+}
+.vendor-card:focus-visible {
+  outline: 3px solid #EB6E45;
+  outline-offset: 3px;
+}
+.vendor-logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.18);
+  user-select: none;
+}
+.vendor-info {
+  flex-grow: 1;
+}
+.vendor-name {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #C94B30;
+  margin-bottom: 0.3rem;
+}
+.vendor-desc {
+  font-size: 1rem;
+  color: #462C21;
+  margin-bottom: 0.5rem;
+}
+.vendor-products {
+  font-size: 0.95rem;
+  color: #7A3B27;
+  font-style: italic;
+}
+
+/* Modal styling */
+#modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+#modal.active {
+  display: flex;
+}
+#modal .modal-content {
+  background: #FFF9F0;
+  border-radius: 14px;
+  max-width: 420px;
+  width: 100%;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 12px 24px rgba(201,75,48,0.5);
+  position: relative;
+  outline: none;
+}
+#modal .close-btn {
+  position: absolute;
+  top: 14px; right: 16px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #C94B30;
+  cursor: pointer;
+  border: none;
+  background: none;
+  line-height: 1;
+  user-select: none;
+  transition: color 0.3s ease;
+  padding: 0;
+}
+#modal .close-btn:hover,
+#modal .close-btn:focus-visible {
+  color: #EB6E45;
+  outline: none;
+  text-shadow: 0 0 8px #EB6E45;
+}
+#modal h3 {
+  color: #C94B30;
+  margin-bottom: 0.6rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+}
+#modal img {
+  max-width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+}
+#modal p {
+  font-size: 1rem;
+  color: #462C21;
+  text-align: justify;
+  white-space: pre-line;
+}
+
+/* Responsive typography */
+@media screen and (max-width: 400px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+  header p {
+    font-size: 1rem;
+  }
+  nav button {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.7rem;
+    min-width: 70px;
+  }
+  h2.section-title {
+    font-size: 1.3rem;
+  }
+  .dish-name {
+    font-size: 1rem;
+  }
+  .dish-region {
+    font-size: 0.85rem;
+  }
+  #modal h3 {
+    font-size: 1.3rem;
+  }
+  #modal p {
+    font-size: 0.9rem;
+  }
+}
+

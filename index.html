@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<title>Promosi Kuliner Tradisional Indonesia</title>
+<link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+<div id="app" role="main" aria-label="Website Promosi Kuliner Tradisional Indonesia">
+
+<header>
+  <h1>Kuliner Nusantara</h1>
+  <p>Ragam Kuliner Tradisional dari Berbagai Daerah di Indonesia</p>
+</header>
+
+<nav role="navigation" aria-label="Navigasi utama">
+  <button type="button" id="nav-about" class="active" aria-controls="about" aria-selected="true">Tentang</button>
+  <button type="button" id="nav-catalog" aria-controls="catalog" aria-selected="false">Daftar Kuliner</button>
+  <button type="button" id="nav-umkm" aria-controls="umkm" aria-selected="false">Promosi UMKM</button>
+  <button type="button" id="nav-contact" aria-controls="contact" aria-selected="false">Kontak</button>
+</nav>
+
+<main tabindex="0">
+  <section id="about" role="region" aria-labelledby="about-label" class="content-section">
+    <h2 id="about-label" class="section-title">Tentang Kuliner Tradisional Indonesia</h2>
+    <p>
+      Indonesia kaya akan ragam kuliner tradisional yang merupakan warisan budaya leluhur. Makanan khas setiap daerah mencerminkan keberagaman rasa, bahan, dan teknik memasak yang unik. Website ini bertujuan memberikan informasi lengkap dan interaktif tentang kuliner tradisional dari Sabang sampai Merauke, sekaligus membantu UMKM kuliner dalam mempromosikan produk mereka ke pasar yang lebih luas.
+    </p>
+  </section>
+
+  <section id="catalog" role="region" aria-labelledby="catalog-label" class="content-section" hidden>
+    <h2 id="catalog-label" class="section-title">Daftar Kuliner Tradisional</h2>
+    <div class="filters" aria-label="Filter dan pencarian kuliner">
+      <select id="regionFilter" aria-label="Filter berdasarkan daerah">
+        <option value="">Semua Daerah</option>
+        <option value="Sumatera">Sumatera</option>
+        <option value="Jawa">Jawa</option>
+        <option value="Kalimantan">Kalimantan</option>
+        <option value="Sulawesi">Sulawesi</option>
+        <option value="Bali & Nusa Tenggara">Bali & Nusa Tenggara</option>
+        <option value="Maluku & Papua">Maluku & Papua</option>
+      </select>
+      <input type="search" id="searchDish" placeholder="Cari kuliner..." aria-label="Cari kuliner"/>
+    </div>
+    <div class="dish-list" id="dishList" tabindex="0" role="list" aria-live="polite" aria-relevant="additions removals"></div>
+  </section>
+
+  <section id="umkm" role="region" aria-labelledby="umkm-label" class="content-section" hidden>
+    <h2 id="umkm-label" class="section-title">Promosi Pelaku UMKM Kuliner</h2>
+    <div class="vendor-list" id="vendorList" tabindex="0" role="list" aria-live="polite" aria-relevant="additions"></div>
+  </section>
+
+  <section id="contact" role="region" aria-labelledby="contact-label" class="content-section" hidden>
+    <h2 id="contact-label" class="section-title">Kontak & Info</h2>
+    <p>Untuk informasi lebih lanjut atau ingin bergabung menjadi bagian dari promosi UMKM kami, silakan hubungi:</p>
+    <ul>
+      <li>Email: <a href="mailto:info@kuliner-nusantara.id" rel="nofollow">info@kuliner-nusantara.id</a></li>
+      <li>Telepon/WA: <a href="tel:+6281234567890" rel="nofollow">+62 812-3456-7890</a></li>
+      <li>Instagram: <a href="https://instagram.com/kuliner.nusantara" target="_blank" rel="noopener">kuliner.nusantara</a></li>
+    </ul>
+  </section>
+</main>
+
+<!-- Modal for dish details -->
+<div id="modal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+  <div class="modal-content">
+    <button class="close-btn" aria-label="Tutup detail kuliner">&times;</button>
+    <h3 id="modalTitle"></h3>
+    <img id="modalImage" alt="" />
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>
+
