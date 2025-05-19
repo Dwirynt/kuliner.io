@@ -34,7 +34,7 @@
       id: 4,
       name: "Papeda dan Ikan Kuah Kuning",
       region: "Maluku & Papua",
-      image: "assets//Papeda.jpg",
+      image: "assets//papeda.jpg",
       description: "Papeda adalah makanan khas Papua dan Maluku terbuat dari tepung sagu yang dimakan dengan ikan kuah kuning bercita rasa asam segar."
     },
     {
